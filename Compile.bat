@@ -1,0 +1,1 @@
+pyinstaller --clean -D -w --i "./Icon/Main.ico" --version-file file_version_info.txt Data.py
