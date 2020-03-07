@@ -14,6 +14,7 @@ from globalvar import globalvar as gl
 from Interface import Software_interface
 from PyQt5.QtWidgets import (QApplication)
 
+
 def File_creation():
     path = "./数据"
     isExists = os.path.exists(path)  # 判断是否存在这个文件夹
@@ -23,6 +24,7 @@ def File_creation():
     isExists = os.path.exists(path)  # 判断是否存在这个文件夹
     if not isExists:  # 如果不存在则创建
         os.makedirs(path)
+
 
 if __name__ == "__main__":
     gl.init()  # 全局变量
