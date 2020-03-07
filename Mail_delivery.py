@@ -7,11 +7,11 @@ import smtplib  # 发送邮件
 def Mail(path):
     try:
         filepath = path  # 附件路径
-        send_user = 'pythonhalp@163.com'  # 发件人
-        password = 'xinghan1996'  # 授权码/密码
-        receive_users = '1090339852@qq.com'  # 收件人，可为list
-        subject = '数据查重数据回传'  # 邮件主题
-        email_text = '删除数据'  # 邮件正文
+        send_user = '****'  # 发件人邮箱
+        password = '****'  # 授权码/密码
+        receive_users = '****'  # 收件人，可为list
+        subject = '****'  # 邮件主题
+        email_text = '****'  # 邮件正文
         server_address = 'smtp.163.com'  # 服务器地址
 
         # 构造一个邮件体：正文 附件
