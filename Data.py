@@ -9,13 +9,11 @@
 2020.7.20:
 在进行数据分析时，先将重码的数据删除，然后再去删除分析时产生的重码（只修改了关联数据）
 """
-
 import os
 import sys
 from globalvar import globalvar as gl
 from Interface import Software_interface
 from PyQt5.QtWidgets import (QApplication)
-
 
 def File_creation():
     path = "./数据"
