@@ -1608,9 +1608,6 @@ class Data_analysis_class(QWidget):
                     else:
                         pass
 
-
-
-
     def closeEvent(self, event):
         for i in range(self.grid.count()):
             self.grid.itemAt(i).widget().deleteLater()
@@ -1639,6 +1636,44 @@ class Data_analysis_class(QWidget):
         self.Contrast_data_fname = ""
         self.End_number = None
         self.Multiple_key = list()
+
+    def firstDeletion(self, data: list):
+        lineDict = dict()
+        oneDict = dict()
+        twoDict = dict()
+        dataDel = list()
+        for i in data:
+            dataDel.append(i)
+        for i in data:
+            lineList = i.split(",")
+            line = lineList[0] + "," + lineList[1]
+            one = lineList[0]
+            two = lineList[1]
+            if line in lineDict:
+                try:
+                    dataDel.remove(i)  # 删除该行
+                    dataDel.remove(lineDict[line])  # 取出字典中的内容删除
+                except:
+                    pass
+            else:
+                lineDict[line] = i  # 如果不在则加入
+            if one in oneDict:
+                try:
+                    dataDel.remove(i)
+                    dataDel.remove(oneDict[one])  # 取出字典中的内容删除
+                except:
+                    pass
+            else:
+                oneDict[one] = i
+            if two in twoDict:
+                try:
+                    dataDel.remove(i)
+                    dataDel.remove(twoDict[two])  # 取出字典中的内容删除
+                except:
+                    pass
+            else:
+                twoDict[two] = i
+        return dataDel
 
     def delete(self, path, Data_list):
         delete_data = []
@@ -1669,7 +1704,8 @@ class Data_analysis_class(QWidget):
             for data in delete_data:
                 name, value = data
                 with open(name, "r") as fo:
-                    Data = fo.readlines()
+                    dataList = fo.readlines()
+                    Data = self.firstDeletion(dataList)
                 for i in value:
                     infor, line, Number_lines_count, judge = i
                     txt = self.Interpretation_function(judge)
